@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = 'a1mln0ps/flask'
-        IMAGE_TAG = "${env.BUILD_NUMBER}"
+        IMAGE_TAG = "${BUILD_NUMBER}"
     }
 
     stages {
@@ -27,7 +27,7 @@ pipeline {
                     script {
                         docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-creds') {
                             dockerImage.push()
-			    dockerImage.push("latest")
+                            dockerImage.push("latest")
                         }
                     }
                 }
@@ -42,6 +42,6 @@ pipeline {
                     """
                 }
             }
-        }
+        }	
     }
 }
