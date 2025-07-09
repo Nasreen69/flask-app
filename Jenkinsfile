@@ -27,6 +27,7 @@ pipeline {
                     script {
                         docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-creds') {
                             dockerImage.push()
+			    dockerImage.push("latest")
                         }
                     }
                 }
